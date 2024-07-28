@@ -1,4 +1,3 @@
-// import { IUser } from '@/models/User.model';
 import Avatar from '../avatar';
 import useGetUsers from '@/hooks/useGetUsers';
 import { Spinner } from '../loading';

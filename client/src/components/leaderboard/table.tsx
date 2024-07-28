@@ -1,4 +1,3 @@
-// import React from 'react';
 import { useState } from 'react';
 
 import { Button } from '../ui/button';
@@ -17,7 +16,6 @@ export function LeaderBoard() {
   });
 
   const prevRecord = useAppSelector((state) => state.rank);
-  console.log(prevRecord);
 
   const handlePrevious = () => {
     if (page > 1) setPage(page - 1);
@@ -28,8 +26,6 @@ export function LeaderBoard() {
   if (isLoading) return <Spinner />;
 
   if (isError) return <ErrorComponent />;
-
-  // if (!newR) return <p>Loading new rank data...</p>;
 
   return (
     <div className=''>
