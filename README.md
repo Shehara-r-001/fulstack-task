@@ -8,6 +8,7 @@
 
 ## To run the Backend:
 
+- `.env` files are included.
 - Move into the `server` subdirectory.
 - Run `yarn start:dev` to start the backend.
 - To check the backend documentation, visit: `http://127.0.0.1:3333/api`
