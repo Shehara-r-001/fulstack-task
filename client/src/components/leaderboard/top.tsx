@@ -42,11 +42,11 @@ export function Top() {
             {rearrangedUsers?.map((person, index) => (
               <div
                 key={index}
-                className={`flex flex-col items-center p-1 rounded-lg`}
+                className={`flex flex-col items-center p-1 rounded-lg space-y-3`}
               >
                 <Avatar seed={person.name.split(' ')[0]} size={64} />
-                <div className='text-base font-semibold mb-3'>
-                  {person.name}
+                <div className='text-xl font-semibold mb-3'>
+                  {person.name.split(' ')[0]}
                 </div>
                 <div
                   className={`flex flex-col w-[120px] items-center justify-end space-y-2 p-4 ${
