@@ -4,7 +4,7 @@
 - Move into the `client` subdirectory.
 - Run `yarn dev` to start the frontend.
 - By Default, will run on PORT 5173. (All the origins are allowed)
-- Tech: ReactJS, TypeScript, Vite, Shadcn, React Query
+- Tech: ReactJS, TypeScript, Vite, Shadcn, React Query, Redux toolkit, thunk
 
 ## To run the Backend:
 
