@@ -41,13 +41,13 @@ export const LeaderboardColumns = ({
           ? 'DOWN'
           : !isSameUser &&
             promoteType === 'UP' &&
-            rank >= newRank &&
-            rank < prevRank
+            rank > newRank &&
+            rank <= prevRank
           ? 'DOWN'
           : !isSameUser &&
             promoteType === 'DOWN' &&
-            rank < newRank &&
-            rank >= prevRank
+            rank <= newRank &&
+            rank > prevRank
           ? 'UP'
           : 'SAME';
 

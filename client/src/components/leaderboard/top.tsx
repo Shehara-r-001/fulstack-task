@@ -52,7 +52,7 @@ export function Top() {
                     person.position === 1
                       ? 'bg-yellow-200 h-[200px]'
                       : person.position === 2
-                      ? '#ffffb3 h-[150px]'
+                      ? 'bg-[#ffffb3] h-[150px]'
                       : 'bg-[#b3cce6] h-[100px]'
                   } rounded-lg`}
                   // style={{
