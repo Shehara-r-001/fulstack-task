@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
+
 import rankReducer from './ranksSlice';
 
 export const store = configureStore({

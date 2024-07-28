@@ -1,12 +1,11 @@
 // import React from 'react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { Button } from '../ui/button';
 import useGetUsers from '@/hooks/useGetUsers';
 import { DataTable } from '../dataTable';
 import { LeaderboardColumns } from './columns';
 import { useAppSelector } from '@/redux/hooks';
-import useGetUserById from '@/hooks/useGetUser';
 import { Spinner } from '../loading';
 import { ErrorComponent } from '../error';
 
@@ -16,25 +15,9 @@ export function LeaderBoard() {
     page,
     pageSize: 10,
   });
-  const [newRank, setNewRank] = useState<number>(null);
 
   const prevRecord = useAppSelector((state) => state.rank);
-  // console.log(prevRecord);
-
-  const { data: newRec, refetch } = useGetUserById(prevRecord.id?.toString());
-  console.log(newRec);
-
-  useEffect(() => {
-    const fetchNewRank = async () => {
-      if (prevRecord.id) {
-        const { data: newww } = await refetch();
-        setNewRank(newww?.rank);
-        console.log(newww);
-      }
-    };
-
-    fetchNewRank();
-  }, [prevRecord.id, refetch]);
+  console.log(prevRecord);
 
   const handlePrevious = () => {
     if (page > 1) setPage(page - 1);
@@ -52,7 +35,7 @@ export function LeaderBoard() {
     <div className=''>
       <DataTable
         columns={LeaderboardColumns({
-          newRank: newRank,
+          newRank: prevRecord.newRank,
           prevRank: prevRecord.rank,
           userId: prevRecord.id,
         })}

@@ -17,6 +17,7 @@ import { Input } from '../ui/input';
 import { useUpdatePoints } from '@/hooks/useUpdateUser';
 import { useAppDispatch } from '@/redux/hooks';
 import { setRank } from '@/redux/ranksSlice';
+import { fetchUser } from '@/redux/actions';
 
 const updateFormSchema = z.object({
   points: z.coerce
@@ -49,6 +50,7 @@ export function UpdateDialog({ user }: UpdateFormProps) {
       dispatch(setRank({ id: user.id, rank: user.rank }));
       const res = await mutateAsync({ userId: user.id, points: data.points });
       if (res) {
+        dispatch(fetchUser(user.id));
         form.reset();
       }
     } catch (error) {

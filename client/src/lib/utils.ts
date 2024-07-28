@@ -10,8 +10,18 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function isInBetween(prev: number, newR: number, current: number) {
-  return current <= newR && current > prev;
+export function isInBetween(
+  prev: number,
+  newR: number,
+  rank: number,
+  type: 'UP' | 'DOWN'
+) {
+  switch (type) {
+    case 'UP':
+      return newR <= rank && prev > rank;
+    case 'DOWN':
+      return newR > rank && prev <= rank;
+  }
 }
 
 /**

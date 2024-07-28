@@ -15,7 +15,6 @@ import { Button } from '../ui/button';
 import { Dialog, DialogTrigger } from '../ui/dialog';
 import { UpdateDialog } from './update';
 import { Rank } from '../rank';
-import { isInBetween } from '@/lib/utils';
 
 interface LeaderBardColProps {
   newRank: number;
@@ -33,18 +32,23 @@ export const LeaderboardColumns = ({
     header: 'Place',
     cell: ({ row }) => {
       const rank = row.original.rank;
-      // console.log(row.original.id);
-      // console.log(rank);
-      // console.log(prevRank);
-      // console.log(newRank);
       const isSameUser = userId === row.original.id;
+      const promoteType = newRank > prevRank ? 'DOWN' : 'UP';
       const cType =
         isSameUser && prevRank > newRank
-          ? 'DOWN'
-          : isSameUser && newRank > prevRank
           ? 'UP'
-          : !isSameUser && isInBetween(prevRank, newRank, rank)
+          : isSameUser && newRank > prevRank
           ? 'DOWN'
+          : !isSameUser &&
+            promoteType === 'UP' &&
+            rank >= newRank &&
+            rank < prevRank
+          ? 'DOWN'
+          : !isSameUser &&
+            promoteType === 'DOWN' &&
+            rank < newRank &&
+            rank >= prevRank
+          ? 'UP'
           : 'SAME';
 
       return (
