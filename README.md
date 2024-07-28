@@ -1,7 +1,6 @@
 ## To run the Client:
 
--`.env` files are included.
-
+- `.env` files are included.
 - Move into the `client` subdirectory.
 - Run `yarn dev` to start the frontend.
 - By Default, will run on PORT 5173. (All the origins are allowed)
