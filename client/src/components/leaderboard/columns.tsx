@@ -47,7 +47,7 @@ export const LeaderboardColumns = ({
           : !isSameUser &&
             promoteType === 'DOWN' &&
             rank <= newRank &&
-            rank > prevRank
+            rank >= prevRank
           ? 'UP'
           : 'SAME';
 

@@ -10,7 +10,7 @@ import { IUser } from '@/models/User.model';
 
 const useGetUsers = (
   paginationRequest: IPaginationRequest,
-  staleTime = 5 * 60 * 1000
+  staleTime = 15 * 60 * 1000
 ) => {
   const BASE_URL = import.meta.env.VITE_BASE_API_URL as string;
   const VERSION = import.meta.env.VITE_API_VERSION as string;
@@ -33,8 +33,6 @@ const useGetUsers = (
             },
           }
         );
-
-      console.log(response.data);
 
       return response.data.data;
     },

@@ -3,7 +3,12 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
 import { Button } from '../ui/button';
-import { DialogContent, DialogHeader, DialogTitle } from '../ui/dialog';
+import {
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '../ui/dialog';
 import { IUser } from '@/models/User.model';
 import {
   Form,
@@ -62,6 +67,9 @@ export function UpdateDialog({ user }: UpdateFormProps) {
     <DialogContent>
       <DialogHeader>
         <DialogTitle>Update points of the user here..</DialogTitle>
+        <DialogDescription>
+          You can update points of a user here..
+        </DialogDescription>
       </DialogHeader>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(handleSubmit)}>
